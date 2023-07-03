@@ -12,7 +12,7 @@ export default function App() {
       style: 'mapbox://styles/mapbox/light-v11', // style URL
       center: [114.3262, 30.5469], // starting position
       zoom: 10 // starting zoom
-      });
+    });
        
     map.on('load', () => {
       // Add a data source containing GeoJSON data.
