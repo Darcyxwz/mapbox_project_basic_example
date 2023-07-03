@@ -10,13 +10,12 @@ export default function App() {
       container: 'map', // container ID
       // Choose from Mapbox's core styles, or make your own style with Mapbox Studio
       style: 'mapbox://styles/mapbox/light-v11', // style URL
-      center: [114.3262, 30.5469], // starting position
+      center: [114.3262, 30.5469], // starting position：["经度"，"纬度"]
       zoom: 10 // starting zoom
     });
-       
+
     map.on('load', () => {
-      // Add a data source containing GeoJSON data.
-      map.addSource('maine', {
+      map.addSource('maine', {   // Add a data source containing GeoJSON data.在这里加入geojson文件：（map.addSource("name", {})）
         'type': 'geojson',
         'data': {
           'type': 'Feature',
@@ -53,14 +52,14 @@ export default function App() {
         
       // Add a new layer to visualize the polygon.
       map.addLayer({
-      'id': 'maine',
-      'type': 'fill',
-      'source': 'maine', // reference the data source
-      'layout': {},
-      'paint': {
-      'fill-color': '#0080ff', // blue color fill
-      'fill-opacity': 0.5
-      }
+        'id': 'maine', //这里是图层的id，不是寻找对应来源的id
+        'type': 'fill',
+        'source': 'maine', // reference the data source 这里才是来源的id
+        'layout': {},
+        'paint': {
+        'fill-color': '#0080ff', // blue color fill
+        'fill-opacity': 0.5
+        }
       });
 
       // Add a black outline around the polygon.
